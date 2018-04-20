@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>Name: <br> <input name="nameInp" [(ngModel)]="name" type="text"
+                           formControlName="name" minlength="3"></label>
+  <label>E-mail: <br> <input name="emailInput" [(ngModel)]="email" type="email"
+                             formControlName="email" email></label>
+  <label>Phone: <br> <input name="emailInput" [(ngModel)]="phone" type="tel"
+                            formControlName="phone"></label>
+  <input
+    [disabled]="form.invalid"
+    type="submit">
+</form>
+
+<div>
+
+  <p *ngIf="form.get('name').invalid && form.get('name').touched">Enter correct name (more than 3 words)</p>
+  <p *ngIf="form.get('email').invalid && form.get('email').touched">Enter correct e-mail (example@mail.com)</p>
+  <p *ngIf="form.get('phone').invalid && form.get('phone').touched">Enter correct phone (more than 10 symbols)</p>
+
+</div>
+
+<h3 *ngIf="isSent">Sent to serv</h3>
+

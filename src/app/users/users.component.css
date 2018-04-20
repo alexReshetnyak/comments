@@ -1,0 +1,12 @@
+.usersList{
+  max-height: 300px;
+  overflow: auto;
+}
+
+.usersList * {
+  word-break: break-all;
+}
+
+.err{
+  color: #ff0000;
+}

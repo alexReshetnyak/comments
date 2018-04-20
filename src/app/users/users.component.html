@@ -1,0 +1,26 @@
+<button (click)="getUsers()">Get info</button>
+
+
+<div class="usersList" *ngIf="isDownloaded">
+
+
+  <div *ngFor="let user of users">
+
+    <h4>{{user.name}}</h4>
+
+    <p>Phone: {{user.phone}}</p>
+
+    <p>E-mail: {{user.email}}</p>
+
+    <hr>
+
+  </div>
+
+</div>
+
+
+<p *ngIf="!isDownloaded">Пока информации нет</p>
+
+<p class="err" *ngIf="errorOnLoad">Something going wrong(((</p>
+
+
