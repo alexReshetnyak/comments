@@ -1,10 +1,16 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <label>Name: <br> <input name="nameInp" [(ngModel)]="name" type="text"
-                           formControlName="name" minlength="3"></label>
-  <label>E-mail: <br> <input name="emailInput" [(ngModel)]="email" type="email"
-                             formControlName="email" email></label>
-  <label>Phone: <br> <input name="emailInput" [(ngModel)]="phone" type="tel"
-                            formControlName="phone"></label>
+  <label>Name: <br> 
+    <input name="nameInp" [(ngModel)]="name" type="text"
+      formControlName="name" minlength="3">
+  </label>
+  <label>E-mail: <br> 
+    <input name="emailInput" [(ngModel)]="email" type="email"
+      formControlName="email" email>
+  </label>
+  <label>Phone: <br> 
+    <input name="emailInput" [(ngModel)]="phone" type="tel"
+      formControlName="phone">
+  </label>
   <input
     [disabled]="form.invalid"
     type="submit">

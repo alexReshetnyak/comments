@@ -9,11 +9,14 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-
+  // when you declare a property use access modificators (public, private)
   form: FormGroup;
 
+  // save url data source in service, not in your component
   url = 'https://jsonplaceholder.typicode.com/posts';
 
+// no need this properties - name email phone,
+// use this.form.value() to get info what needed to sent
   name = '';
   email = '';
   phone: number = null;
@@ -21,11 +24,14 @@ export class FormComponent implements OnInit {
   isSent = false;
 
   onSubmit() {
-
+    // Don't leave active console.log(), always try to commit this method or delete it,
+    // also use comment in log method like console.log(users, 'users debug')
     console.log(this.form);
 
+// Better to send info in single variable like userInfo or something same
     this.methods.postInfo(this.url, this.name, this.email, this.phone).subscribe(
       (res) => {
+        // use this.form.reset(); instead your code below
         this.email = '';
         this.name = '';
         this.phone = null;
@@ -35,6 +41,7 @@ export class FormComponent implements OnInit {
     );
   }
 
+  // constructor and ngOnInit have to be above the other methods
   constructor(private methods: HttpMethods) {
   }
 
